@@ -1,4 +1,8 @@
 '''
+In this module, I'm getting data from Google Finance and using pandas to 
+calculate the moving averages for Overstock.com stock (OSTK). I'm also getting its 
+timeseries. 
+
 Created on Nov 24, 2017
 
 @author: connorfairman
@@ -42,7 +46,7 @@ ostk = close.ix[:, 'OSTK']
 short_rolling_ostk = ostk.rolling(window=20).mean()
 long_rolling_ostk = ostk.rolling(window=100).mean()
 
-#Plot everything by leveraging the very powerful matplotlib package
+#Plot everything by leveraging the matplotlib package
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
 ax.plot(ostk.index, ostk, label='OSTK')
@@ -53,3 +57,4 @@ ax.set_ylabel('Adjusted closing price ($)')
 ax.legend()
 
 print(plt.show())
+print(ostk)
