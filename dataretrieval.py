@@ -36,18 +36,18 @@ close.head(10)
 
 #Now let's get the MSFT timeseries. This now returns a Pandas Series 
 #object indexed by date.
-msft = close.ix[:, 'OSTK']
+ostk = close.ix[:, 'OSTK']
 
 #Calculate the 20 and 100 days moving averages of the closing prices
-short_rolling_msft = msft.rolling(window=20).mean()
-long_rolling_msft = msft.rolling(window=100).mean()
+short_rolling_ostk = ostk.rolling(window=20).mean()
+long_rolling_ostk = ostk.rolling(window=100).mean()
 
 #Plot everything by leveraging the very powerful matplotlib package
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-ax.plot(msft.index, msft, label='OSTK')
-ax.plot(short_rolling_msft.index, short_rolling_msft, label='20 days rolling')
-ax.plot(long_rolling_msft.index, long_rolling_msft, label='100 days rolling')
+ax.plot(ostk.index, ostk, label='OSTK')
+ax.plot(short_rolling_ostk.index, short_rolling_ostk, label='20 days rolling')
+ax.plot(long_rolling_ostk.index, long_rolling_ostk, label='100 days rolling')
 ax.set_xlabel('Date')
 ax.set_ylabel('Adjusted closing price ($)')
 ax.legend()
